@@ -13,6 +13,6 @@
 ```
 ## Running the Tool
 
-#### All of the given filenames are hardcoded into the main script into an array called given_filenames. If you would like to add more filenames be sure to do so.
-1. Be sure to download the Programming-Assignment-Data folder with all of the xml and png files onto your computer. Add the file path of this folder into the script where denoted by the variable name folderLocation.
+#### Both the input and output folders are provided as well as all filepaths needed to run the script. 
+1. Be sure to empty out the output folder before running the tool. Then run main.py to generate the annotated screenshots which can be found in the output directory in the src directory.
 
