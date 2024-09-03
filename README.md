@@ -3,7 +3,7 @@
 ## Installation
 ### 1. In order to compile and run code first clone the repository into your editor and cd into the src folder of the project
 ```bash
-   git clone https://github.com/yourusername/yourproject.git
+   git clone https://github.com/lillieayer/cs435assignment1.git
    cd yourproject/src
 ```
 ### 2. Download all dependencies by running
