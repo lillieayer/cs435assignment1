@@ -1,7 +1,7 @@
 
 from xml.dom.minidom import parse
 from PIL import Image, ImageDraw, ImageFont
-import os
+import os, re
 
 def get_all_leafs_nodes(allNodes):
     leaves_bounds = []
@@ -18,21 +18,26 @@ if __name__ == "__main__":
             filename = file.split(".xml")[0]
             try:
                 # use xml parser to read xml file
-                dom = parse(file)
-                screenshot = Image.open(filename + ".png")
+                dom = parse(currdir + "/Programming-Assignment-Data/" + file)
+                screenshot = Image.open(currdir + "/Programming-Assignment-Data/" + filename + ".png")
                 # get drawing object to write on screenshot
                 canvas = ImageDraw.Draw(screenshot)
                 allLeafs = get_all_leafs_nodes(dom.getElementsByTagName("*"))
                 for leaf in allLeafs:
                     # get coordinates for leaf components
                     currBound = leaf.getAttribute("bounds")
-                    # format into just #
-                    currBound = currBound.split("[")
-                    print(currBound)
+                    # format into just number coordinates
+                    pattern = r'\d+'
+                    bounds = re.findall(pattern, currBound)
+                    bounds = list(map(int, bounds))
+                    # save coordinates to draw on screenshots
+                    x0 = bounds[0]
+                    y0 = bounds[1]
+                    x1 = bounds[2]
+                    y1 = bounds[3]
                     canvas.rectangle(((x0,y0), (x1,y1)), outline="yellow", width=3)
                     # save in output folder
                     screenshot.save(currdir + "/output/annotated_" + filename +".png")
             except:
                 print("Error parsing file! please fix in file: " + file)
-            break
-'''
+
