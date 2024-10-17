@@ -1,7 +1,7 @@
 # Leaf Component Identifier Tool
 
 ## Installation
-### 1. In order to compile and run code first clone the repository into your editor and cd into the src folder of the project
+### 1. In order to compile and run code first clone the repository into your editor and cd into the src folder of the project using the command-line
 ```bash
    git clone https://github.com/lillieayer/cs435assignment1.git
    cd yourproject/src
